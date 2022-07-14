@@ -2,6 +2,7 @@
 </template>
 
 <script setup>
+import showLocation from "../tools/showLocation"
 const url=window.location.href;
 const requestOptions = {
   method: "POST",
@@ -23,18 +24,10 @@ fetch("http://metagis.cc/prod-api/ToolController/getSignature", requestOptions )
   )
   .then(()=>{
     wx.ready(function(){
-    alert("流程结束")
-    wx.openLocation({
-    latitude: 30.1726, // 纬度，浮点数，范围为90 ~ -90
-    longitude: 120.1, // 经度，浮点数，范围为180 ~ -180。
-    name: '位置', // 位置名
-    address: '测试地址', // 地址详情说明
-    scale: 1, // 地图缩放级别,整型值,范围从1~28。默认为最大
-    infoUrl: 'https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html' // 在查看位置界面底部显示的超链接,可点击跳转
-    });
+      showLocation(30.1726,120.001,"测试地址","咱就是试一下")
     });
     wx.error(function(res){
-        alert("网络异常，请检查",res)
+        alert("网络异常，与微信连接失败",res)
     }); 
   })
  

@@ -1,10 +1,9 @@
 <script setup>
-import ReadyWX from "./components/readyWX.vue"
+import ConnectWechats from "./components/connectWechats.vue"
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <ReadyWX/>
 </template>
 
 <style> 
