@@ -1,77 +1,56 @@
 <template>
-<div id="bottomBox">
-  <div @click="switchDayNight" class="Mode">
-    <img class="Icon" src="/src/assets/Interaction/night.png" alt=""/>
-    <div class="modeContent">夜间模式</div>
-    <img  v-show="state.isNight" class="bottonBg" src="/src/assets/Interaction/bottom1.png"/>
-    <img  v-show="!state.isNight" class="bottonBg" src="/src/assets/Interaction/bottom2.png"/>
-  </div>
-  <div @click="switchRain" class="Mode">
-    <img class="Icon" src="/src/assets/Interaction/rain.png" alt=""/>
-    <div class="modeContent">雨天模式</div>
-    <img  v-show="state.isRain" class="bottonBg" src="/src/assets/Interaction/bottom1.png"/>
-    <img  v-show="!state.isRain" class="bottonBg" src="/src/assets/Interaction/bottom2.png"/>
-  </div>
-  <div @click="snedAssignMessage(res)" class="Mode">
-    <img class="Icon" src="/src/assets/Interaction/initLoaction.png" alt=""/>
-    <div class="modeContent">位置重置</div>
-    <img class="bottonBg" src="/src/assets/Interaction/bottom2.png"/>
-  </div>
-  <div @click="snedAssignMessage(play)" class="Mode">
-    <img class="Icon" src="/src/assets/Interaction/play.png" alt=""/>
-    <div class="modeContent">场景漫游</div>
-    <img class="bottonBg" src="/src/assets/Interaction/bottom2.png"/>
-  </div>
+<div class="container">
+    <div @click="snedAssignMessage(touristRoutesList)" class="box">旅游路线清单</div>
+    <div @click="snedAssignMessage(touristRoutes1)" class="box">打开旅游路线</div>
+    <div @click="snedAssignMessage(viewPointList1)" class="box">显示点位清单</div>
+    <div @click="snedAssignMessage(closeInfo)" class="box">关闭点位信息</div>
+    <div @click="snedAssignMessage(resetDefaultView)" class="box">重置位置</div>
+
 </div>
+
 </template>
+
 
 <script setup>
 import {ref,reactive } from 'vue'
+
+const touristRoutesList='{"eventname": "Event_tourist_routes_list"}'
+const touristRoutes1='{"eventname": "Event_tourist_routes","type":"rout_001"}'
+const touristRoutes2='{"eventname": "Event_tourist_routes","type":"rout_002"}'
+
+const viewPointList1='{"eventname": "Event_view_point_list","type":"list_001"}'
+const viewPointList2='{"eventname": "Event_view_point_list","type":"list_002"}'
+const viewPointList3='{"eventname": "Event_view_point_list","type":"list_003"}'
+const viewPointList4='{"eventname": "Event_view_point_list","type":"list_004"}'
+
 const closeInfo='{"eventname": "Event_close_info"}'
+const resetDefaultView='{"eventname": "Event_reset_default_view"}'
+
 function snedAssignMessage(assignMessage) {
     console.log("开始传输"+assignMessage)
-    launch.getConnection().emitUIInteraction('{"eventname": "Event_play_voice","type":" target_001"}').then(result=>console.log(result))
+    launch.getConnection().emitUIInteraction(assignMessage).then(result=>console.log(result))
     console.log("传输结束")
 }
 </script>
 
-<style lang="less" scoped>
-#bottomBox{
-    display: flex;
-    position:absolute; 
-    bottom:44px;
-    width:100%;
-    justify-content:center;
-    z-index: 2;
-    .Mode{
-      display: flex;
-      position: relative;
-      margin: 0px 10px;
-      align-items: center;
-      cursor: pointer;
-      padding:12px;
-      justify-content: space-evenly;
-      .Icon{
-        width: 25px;
-        height: 25px;
-        z-index: 3;
-        opacity: .8;
-      }
-      .modeContent{
-        font-size:12px;
-        color: black;
-        z-index: 3;
-        margin-left: 4px;
-        opacity: .8;
 
-      }
-      .bottonBg{
-        position: absolute;
-        left: 0px;
-        width: 100%;
-        opacity: .8;
-      }
+<style lang="less" scoped>
+.container{
+    z-index: 1;
+    width:70%;
+    height:10%;
+    position: absolute;
+    left:50%;
+    top:80%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .box{
+        width:15%;
+        height:100%;
+        background-color:blue;
+        border-radius:8px;
     }
 }
-
 </style>

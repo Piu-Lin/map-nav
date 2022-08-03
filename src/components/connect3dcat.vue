@@ -4,7 +4,7 @@
 import { Launcher } from 'live-cat'
 import privacy from  "../../private/index.json"
 const address = 'https://app.3dcat.live'
-// const emit = defineEmits(["trigger"])
+const emit = defineEmits(["trigger"])
 const bootstrap = async () => {
   try {
     const launch = new Launcher({
@@ -23,6 +23,11 @@ const bootstrap = async () => {
     window.launch = launch
     window.connection = connection
     window.livePlayer = livePlayer
+    window.connection.event.interaction.on((msg) =>{
+      console.log("触发事件",msg)
+      emit("trigger",msg)
+    }
+    )
   } catch (error) {
     console.error(error);
   }
