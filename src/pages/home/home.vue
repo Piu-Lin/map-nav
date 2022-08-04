@@ -14,6 +14,8 @@ let targetId= ref("")
 /** 是否显示细节弹窗 */
 let showTarget = ref(false)
 
+// handleTagetInfoMsg({"eventname": "Event_show_target_info","type":"target_001"})
+
 // 处理显示详情事件
 function handleTagetInfoMsg(uemeg){
   targetId.value=uemeg.type

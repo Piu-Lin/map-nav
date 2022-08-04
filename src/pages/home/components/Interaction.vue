@@ -3,14 +3,11 @@
     <div @click="snedAssignMessage(touristRoutesList)" class="box">旅游路线清单</div>
     <div @click="snedAssignMessage(touristRoutes1)" class="box">打开旅游路线</div>
     <div @click="snedAssignMessage(viewPointList1)" class="box">显示点位清单</div>
-    <div @click="snedAssignMessage(closeInfo)" class="box">关闭点位信息</div>
+    <div @click="snedAssignMessage(playMovie)" class="box">播放视频</div>
     <div @click="snedAssignMessage(resetDefaultView)" class="box">重置位置</div>
-
 </div>
 
 </template>
-
-
 <script setup>
 import {ref,reactive } from 'vue'
 
@@ -24,6 +21,8 @@ const viewPointList3='{"eventname": "Event_view_point_list","type":"list_003"}'
 const viewPointList4='{"eventname": "Event_view_point_list","type":"list_004"}'
 
 const closeInfo='{"eventname": "Event_close_info"}'
+const playMovie='{"eventname": "Event_play_movie"}'
+
 const resetDefaultView='{"eventname": "Event_reset_default_view"}'
 
 function snedAssignMessage(assignMessage) {
@@ -47,7 +46,7 @@ function snedAssignMessage(assignMessage) {
     justify-content: space-evenly;
     align-items: center;
     .box{
-        width:15%;
+        width:18%;
         height:100%;
         background-color:blue;
         border-radius:8px;

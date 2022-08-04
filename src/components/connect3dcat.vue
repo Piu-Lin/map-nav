@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (
     navigator.userAgent.includes('miniProgram') ||
     navigator.userAgent.includes('MicroMessenger')
-  ) {
+  ) { 
     //微信浏览器/微信小程序环境
     document.addEventListener('WeixinJSBridgeReady', bootstrap, false)
   } else {

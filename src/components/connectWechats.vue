@@ -24,7 +24,8 @@ fetch("http://metagis.cc/prod-api/ToolController/getSignature", requestOptions )
   )
   .then(()=>{
     wx.ready(function(){
-      showLocation(30.1726,120.001,"测试地址","咱就是试一下")
+      // showLocation(30.1726,120.001,"测试地址","咱就是试一下")
+      console.log("与微信连接成功")
     });
     wx.error(function(res){
         alert("网络异常，与微信连接失败",res)

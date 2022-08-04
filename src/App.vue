@@ -1,4 +1,5 @@
 <template>
+  <ConnectWechats/>
   <Connect3dCat @trigger="trigger" />
   <Home ref="homeRef"/>
 </template>
