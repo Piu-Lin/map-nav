@@ -13,7 +13,10 @@ const bootstrap = async () => {
         appKey:privacy.catAppKeyt,
         startType: 1, //	1:普通链接 | 3:投屏链接
       },
-    });
+      extendOptions:{
+        ueMultiTouch:true,
+      },
+    })
     const player = document.querySelector("body");
     document.querySelector("body").style.width = "100vw";
     document.querySelector("body").style.height = "100vh";

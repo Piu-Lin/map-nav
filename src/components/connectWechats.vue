@@ -9,7 +9,7 @@ const requestOptions = {
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({id:9,url})
 }; 
-fetch("http://metagis.cc/prod-api/ToolController/getSignature", requestOptions )
+fetch("https://metagis.cc/prod-api/ToolController/getSignature", requestOptions )
   .then(response => response.json())
   .then(data=>{
     wx.config({

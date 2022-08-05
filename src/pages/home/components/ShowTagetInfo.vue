@@ -12,7 +12,7 @@
             <div @click="handlecloseinfo()" class="back">返回</div> 
             <div @click="handlenaviga()" class="back">导航</div> 
         </div>
-        <audio ref="myaudio" src="/src/assets/tagetInfo/voice/Endings.mp3" id="myaudio" controls="controls" loop="false" hidden="true"></audio>
+        <audio ref="myaudio" src="/voice/Endings.mp3" id="myaudio" muted="muted" controls="controls" loop="false" hidden="true"></audio>
     </div>
 </template>
 <script setup>
@@ -34,6 +34,7 @@ function handlevoices(flg){
         console.log("开始播放")
         console.log(myaudio)
         myaudio.play()
+        myaudio.muted = false
         
     } else {
         console.log("停止播放")
@@ -49,7 +50,7 @@ function handlenaviga(){
 
 </script>
 <style lang="less" scoped>
-.container{
+.container {
     width: 20%;
     height: 70%;
     position: absolute;

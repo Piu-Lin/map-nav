@@ -9,7 +9,7 @@ import ShowTargetInfo from './components/ShowTagetInfo.vue'
 import { ref, reactive } from "vue"
 
 /** 所要展示的对应点位 */
-let targetId= ref("")
+let targetId = ref("")
 
 /** 是否显示细节弹窗 */
 let showTarget = ref(false)
